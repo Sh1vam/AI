@@ -1,0 +1,27 @@
+1st install all reqd things using ""pip install -r req.txt "" perforn this task  in this folder
+now 
+pip download pyaudio
+
+will be downloaded in current working directory 
+
+then 
+
+extract that
+
+and open folder PyAudio
+ 
+put 
+
+pyaudio  _portaudio.cp38-win_amd64
+
+in python site packages
+
+also put whole folder of Pyaudio in Python sitepackages
+
+Python sitepackages will be found in 
+
+C:\Users\loginname\AppData\Local\Programs\Python\Python38\Lib\site-packages
+
+now there u will find folder named "pil"
+
+change its name to "PIL"
