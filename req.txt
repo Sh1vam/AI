@@ -1,0 +1,9 @@
+pillow
+wikipedia
+speechRecognition
+pyttsx3
+PyPDF2
+pyautogui
+requests
+numpy
+matplotlib
