@@ -6,9 +6,7 @@ import statistics
 print()
 print('''Made by - Shivam.P.Patel
 
-Class   - 11 Science
-
-Roll No.- 27''')
+''')
 
 time.sleep(2)
 
