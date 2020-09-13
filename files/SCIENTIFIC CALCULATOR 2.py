@@ -10,9 +10,7 @@ from statistics import*
 os.system("msg * GUI SCIENTIFIC CALCULATOR")
 msg.showinfo("",'''Made by - Shivam.P.Patel
 
-Class   - 12 Science
-
-Roll No.- 27''')
+''')
 msg.showinfo("HELP",'''YOU SHOULD CLOSE ALL BRACKET AND STRING'
 POW(NUMBER,POWER)
 GCD(NUMBER_1,NUMBER_2)
