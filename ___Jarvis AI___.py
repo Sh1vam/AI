@@ -62,10 +62,6 @@ def AI():
                 print("Recovered Cases : "+ i["recovered"])
                 speak("Recovered Cases : "+ i["recovered"])
 
-    def hit(key):
-        pyautogui.keyDown(key)
-        return
-
     def speak(audio):
         engine.say(audio)
         engine.runAndWait()
@@ -339,9 +335,10 @@ def AI():
             elif 'are you there' in query :
                 speak("Yes I am There")
             elif 'print' in query :
-                a=str(query)
-                print(a[6:]+"\n")
-                hit(a)
+                #a=str(query)
+                #print(a[6:]+"\n")
+                pyautogui.keyDown(query[6:])
+                pyautogui.typewrite(query[6:])
             elif 'covid' in query :
                 a=str(query)
                 print(a[6:])
