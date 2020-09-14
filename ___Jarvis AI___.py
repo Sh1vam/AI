@@ -144,6 +144,77 @@ def AI():
                     time.sleep(delay)
                     win32api.keybd_event(win32con.VK_SHIFT, 0, win32con.KEYEVENTF_KEYUP, 0)
                     time.sleep(delay)
+                elif letter=='>':
+                    win32api.keybd_event(win32con.VK_SHIFT, 0, 0, 0)
+                    time.sleep(delay)
+                    win32api.keybd_event(190, 0, win32con.KEYEVENTF_EXTENDEDKEY | 0, 0)
+                    time.sleep(delay)
+                    win32api.keybd_event(190, 0, win32con.KEYEVENTF_EXTENDEDKEY | 
+                    win32con.KEYEVENTF_KEYUP, 0)
+                    time.sleep(delay)
+                    win32api.keybd_event(win32con.VK_SHIFT, 0, win32con.KEYEVENTF_KEYUP, 0)
+                    time.sleep(delay)
+                elif letter=='<':
+                    win32api.keybd_event(win32con.VK_SHIFT, 0, 0, 0)
+                    time.sleep(delay)
+                    win32api.keybd_event(188, 0, win32con.KEYEVENTF_EXTENDEDKEY | 0, 0)
+                    time.sleep(delay)
+                    win32api.keybd_event(188, 0, win32con.KEYEVENTF_EXTENDEDKEY | 
+                    win32con.KEYEVENTF_KEYUP, 0)
+                    time.sleep(delay)
+                    win32api.keybd_event(win32con.VK_SHIFT, 0, win32con.KEYEVENTF_KEYUP, 0)
+                    time.sleep(delay)
+                elif letter=='~':
+                    win32api.keybd_event(win32con.VK_SHIFT, 0, 0, 0)
+                    time.sleep(delay)
+                    win32api.keybd_event(192, 0, win32con.KEYEVENTF_EXTENDEDKEY | 0, 0)
+                    time.sleep(delay)
+                    win32api.keybd_event(192, 0, win32con.KEYEVENTF_EXTENDEDKEY | 
+                    win32con.KEYEVENTF_KEYUP, 0)
+                    time.sleep(delay)
+                    win32api.keybd_event(win32con.VK_SHIFT, 0, win32con.KEYEVENTF_KEYUP, 0)
+                    time.sleep(delay)
+                elif letter=='(':
+                    win32api.keybd_event(win32con.VK_SHIFT, 0, 0, 0)
+                    time.sleep(delay)
+                    win32api.keybd_event(ord('9'), 0, win32con.KEYEVENTF_EXTENDEDKEY | 0, 0)
+                    time.sleep(delay)
+                    win32api.keybd_event(ord('9'), 0, win32con.KEYEVENTF_EXTENDEDKEY | 
+                    win32con.KEYEVENTF_KEYUP, 0)
+                    time.sleep(delay)
+                    win32api.keybd_event(win32con.VK_SHIFT, 0, win32con.KEYEVENTF_KEYUP, 0)
+                    time.sleep(delay)
+                elif letter==')':
+                    win32api.keybd_event(win32con.VK_SHIFT, 0, 0, 0)
+                    time.sleep(delay)
+                    win32api.keybd_event(ord('0'), 0, win32con.KEYEVENTF_EXTENDEDKEY | 0, 0)
+                    time.sleep(delay)
+                    win32api.keybd_event(ord('0'), 0, win32con.KEYEVENTF_EXTENDEDKEY | 
+                    win32con.KEYEVENTF_KEYUP, 0)
+                    time.sleep(delay)
+                    win32api.keybd_event(win32con.VK_SHIFT, 0, win32con.KEYEVENTF_KEYUP, 0)
+                    time.sleep(delay)
+                elif letter=='+':
+                    win32api.keybd_event(win32con.VK_SHIFT, 0, 0, 0)
+                    time.sleep(delay)
+                    win32api.keybd_event(107, 0, win32con.KEYEVENTF_EXTENDEDKEY | 0, 0)
+                    time.sleep(delay)
+                    win32api.keybd_event(107, 0, win32con.KEYEVENTF_EXTENDEDKEY | 
+                    win32con.KEYEVENTF_KEYUP, 0)
+                    time.sleep(delay)
+                    win32api.keybd_event(win32con.VK_SHIFT, 0, win32con.KEYEVENTF_KEYUP, 0)
+                    time.sleep(delay)
+                elif letter=='/':
+                    win32api.keybd_event(win32con.VK_SHIFT, 0, 0, 0)
+                    time.sleep(delay)
+                    win32api.keybd_event(111, 0, win32con.KEYEVENTF_EXTENDEDKEY | 0, 0)
+                    time.sleep(delay)
+                    win32api.keybd_event(111, 0, win32con.KEYEVENTF_EXTENDEDKEY | 
+                    win32con.KEYEVENTF_KEYUP, 0)
+                    time.sleep(delay)
+                    win32api.keybd_event(win32con.VK_SHIFT, 0, win32con.KEYEVENTF_KEYUP, 0)
+                    time.sleep(delay)
+
 
         win32api.keybd_event(13, 0, win32con.KEYEVENTF_EXTENDEDKEY | 0, 0) 
         # There is a carriage return at the end of each newline
