@@ -9,6 +9,7 @@ import smtplib
 import requests as r
 from PIL import Image
 from PyPDF2 import*
+import win32api,time,win32con,random
 
 def AI():
     engine = pyttsx3.init('sapi5')
@@ -68,7 +69,106 @@ def AI():
     def speak(audio):
         engine.say(audio)
         engine.runAndWait()
+    
 
+    def typethis(sentence=None,shift=False,control=False,delay=0.05,random_delay=0.05):
+        for letter in sentence:
+            time.sleep(random.random()*random_delay) # Makes it look like real typing
+            c=letter
+            punctflag = True
+            if (letter>='A' and letter<='Z') or shift:
+                win32api.keybd_event(win32con.VK_SHIFT, 0, 0, 0)
+                punctflag = False
+            if letter>='a' and letter<='z':
+                c=letter.upper()
+                punctflag = False
+            if ((letter>='0' and letter<='9') or (letter==' ')):
+                punctflag=False
+            if control:
+                win32api.keybd_event(win32con.VK_CONTROL, 0, 0, 0)
+
+            if not punctflag: # Do this for real letters on the keyboard
+                if isinstance(letter,(int)):
+                    ordletter=letter
+                else:
+                    ordletter=ord(c)
+
+                win32api.keybd_event(ordletter, 0, win32con.KEYEVENTF_EXTENDEDKEY | 0, 0) 
+                time.sleep(delay)
+                win32api.keybd_event(ordletter, 0, win32con.KEYEVENTF_EXTENDEDKEY | 
+                            win32con.KEYEVENTF_KEYUP, 0)
+                time.sleep(delay)
+
+                if control:
+                    win32api.keybd_event(win32con.VK_CONTROL, 0, win32con.KEYEVENTF_KEYUP, 0)
+                if (letter>='A' and letter<='Z') or shift:
+                    win32api.keybd_event(win32con.VK_SHIFT, 0, win32con.KEYEVENTF_KEYUP, 0)
+            # This must be some punctuation - try to deal with it. 
+            # win32con doesn't include OEM
+            else: 
+                if letter=='.':
+                    win32api.keybd_event(190, 0, win32con.KEYEVENTF_EXTENDEDKEY | 0, 0)
+                    time.sleep(delay)
+                    win32api.keybd_event(190, 0, win32con.KEYEVENTF_EXTENDEDKEY | 
+                    win32con.KEYEVENTF_KEYUP, 0)
+                    time.sleep(delay)
+                elif letter==',':
+                    win32api.keybd_event(188, 0, win32con.KEYEVENTF_EXTENDEDKEY | 0, 0)
+                    time.sleep(delay)
+                    win32api.keybd_event(188, 0, win32con.KEYEVENTF_EXTENDEDKEY | 
+                    win32con.KEYEVENTF_KEYUP, 0)
+                    time.sleep(delay)
+                elif letter=='-':
+                    win32api.keybd_event(189, 0, win32con.KEYEVENTF_EXTENDEDKEY | 0, 0)
+                    time.sleep(delay)
+                    win32api.keybd_event(189, 0, win32con.KEYEVENTF_EXTENDEDKEY | 
+                    win32con.KEYEVENTF_KEYUP, 0)
+                    time.sleep(delay)
+                elif letter=='?':
+                    win32api.keybd_event(win32con.VK_SHIFT, 0, 0, 0)
+                    time.sleep(delay)
+                    win32api.keybd_event(191, 0, win32con.KEYEVENTF_EXTENDEDKEY | 0, 0)
+                    time.sleep(delay)
+                    win32api.keybd_event(191, 0, win32con.KEYEVENTF_EXTENDEDKEY | 
+                    win32con.KEYEVENTF_KEYUP, 0)
+                    time.sleep(delay)
+                    win32api.keybd_event(win32con.VK_SHIFT, 0, win32con.KEYEVENTF_KEYUP, 0)
+                    time.sleep(delay)
+                elif letter=='!':
+                    win32api.keybd_event(win32con.VK_SHIFT, 0, 0, 0)
+                    time.sleep(delay)
+                    win32api.keybd_event(ord('1'), 0, win32con.KEYEVENTF_EXTENDEDKEY | 0, 0)
+                    time.sleep(delay)
+                    win32api.keybd_event(ord('1'), 0, win32con.KEYEVENTF_EXTENDEDKEY | 
+                    win32con.KEYEVENTF_KEYUP, 0)
+                    time.sleep(delay)
+                    win32api.keybd_event(win32con.VK_SHIFT, 0, win32con.KEYEVENTF_KEYUP, 0)
+                    time.sleep(delay)
+
+        win32api.keybd_event(13, 0, win32con.KEYEVENTF_EXTENDEDKEY | 0, 0) 
+        # There is a carriage return at the end of each newline
+        
+        if delay>0.0:
+            time.sleep(delay)
+            win32api.keybd_event(13, 0, win32con.KEYEVENTF_EXTENDEDKEY | 
+            win32con.KEYEVENTF_KEYUP, 0)
+
+    '''def typefromfile(filename):
+        with open(filename, 'r') as fopen: # with automatically closes the file
+            for line in fopen:
+                typethis(line)
+
+    time.sleep(3)'''  # switch focus to a target window manually in this time.
+
+    # Edit below this point to change what it types. 
+    # Supports lowercase and uppercase letters,
+    # numbers, and . , - ! ? (depending on your keyboard layout)
+
+    #typethis("What is happening?")
+
+    #typefromfile("C:/Users/User/Desktop/ghost.txt")
+
+    #typethis("all this should be in capslock", shift=True)
 
     def wishMe():
         hour = int(datetime.datetime.now().hour)
@@ -167,9 +267,9 @@ def AI():
 
             elif 'are you there' in query :
                 speak("Yes I am There")
-            elif 'type' in query :
+            elif 'print' in query :
                 a=str(query)
-                print(a[5:])
+                print(a[6:]+"\n")
                 hit(a)
             elif 'covid' in query :
                 a=str(query)
@@ -185,6 +285,10 @@ def AI():
                 speak("please give me the input")
                 x=input("INPUT A WORD : ")
                 speak(x)
+            elif 'type' in query:
+                typethis(query[5:])
+            
+                
 try:
     AI()
 except:
