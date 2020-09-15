@@ -355,6 +355,27 @@ def AI():
                 speak(x)
             elif 'type' in query:
                 typethis(query[5:])
+            elif 'start chrome' in query:
+                os.startfile("C:\Program Files (x86)\Google\Chrome\Application\chrome.exe")
+            elif 'start firefox' in query:
+                os.startfile("C:\Program Files\Mozilla Firefox\firefox.exe")
+            elif 'start notepad' in query:
+                os.startfile("C:\Windows\notepad.exe")
+            elif 'start explorer' in query:
+                os.startfile("C:\Windows\explorer.exe")
+            elif 'start wordpad' in query:
+                os.startfile("C:\Program Files\Windows NT\Accessories\wordpad.exe")
+            elif 'start paint' in query:
+                os.startfile("C:\Windows\System32\mspaint.exe")
+            elif 'start command prompt' in query:
+                os.startfile("C:\Windows\System32\cmd.exe")
+            elif 'start control pannel' in query:
+                os.startfile("C:\Windows\System32\control.exe")
+            elif 'start winrar' in query:
+                os.startfile("C:\Program Files\WinRAR\WinRAR.exe")
+            elif 'start winzip' in query:
+                os.startfile("C:\Program Files (x86)\WinZip\WINZIP32.EXE")            
+            
             
                 
 try:
