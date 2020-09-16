@@ -358,11 +358,11 @@ def AI():
             elif 'start chrome' in query:
                 os.startfile("C:\Program Files (x86)\Google\Chrome\Application\chrome.exe")
             elif 'start firefox' in query:
-                os.startfile("C:\Program Files\Mozilla Firefox\firefox.exe")
+                os.startfile("C:\Program Files\Mozilla Firefox\Firefox.exe")
             elif 'start notepad' in query:
-                os.startfile("C:\Windows\notepad.exe")
+                os.system("Notepad")
             elif 'start explorer' in query:
-                os.startfile("C:\Windows\explorer.exe")
+                os.startfile("C:\Windows\Explorer.exe")
             elif 'start wordpad' in query:
                 os.startfile("C:\Program Files\Windows NT\Accessories\wordpad.exe")
             elif 'start paint' in query:
@@ -374,7 +374,12 @@ def AI():
             elif 'start winrar' in query:
                 os.startfile("C:\Program Files\WinRAR\WinRAR.exe")
             elif 'start winzip' in query:
-                os.startfile("C:\Program Files (x86)\WinZip\WINZIP32.EXE")            
+                os.startfile("C:\Program Files (x86)\WinZip\WINZIP32.EXE")
+            elif 'play video' in query:
+                video_dir = 'Videos\\'
+                videos = os.listdir(video_dir)
+                print(videos)    
+                os.startfile(os.path.join(video_dir, videos[0]))
             
             
                 
