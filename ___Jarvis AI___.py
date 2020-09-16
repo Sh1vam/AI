@@ -10,6 +10,7 @@ import requests as r
 from PIL import Image
 from PyPDF2 import*
 import win32api,time,win32con,random
+import ctypes
 
 def AI():
     engine = pyttsx3.init('sapi5')
@@ -382,6 +383,10 @@ def AI():
                 videos = os.listdir(video_dir)
                 print(videos)    
                 os.startfile(os.path.join(video_dir, videos[0]))
+            elif 'start cd' in query:
+                  for i in range(1):
+                     ctypes.windll.winmm.mciSendStringW("set cdaudio door open",None, 0, None)
+                     ctypes.windll.winmm.mciSendStringW("set cdaudio door closed",None, 0, None)
             
             
                 
