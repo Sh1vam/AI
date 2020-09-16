@@ -375,6 +375,8 @@ def AI():
                 os.startfile("C:\Program Files\WinRAR\WinRAR.exe")
             elif 'start winzip' in query:
                 os.startfile("C:\Program Files (x86)\WinZip\WINZIP32.EXE")
+            elif 'start calculator' in query:
+                os.startfile("C:\Windows\system32\calc.exe")
             elif 'play video' in query:
                 video_dir = 'Videos\\'
                 videos = os.listdir(video_dir)
