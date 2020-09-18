@@ -10,7 +10,6 @@ import requests as r
 from PIL import Image
 from PyPDF2 import*
 import win32api,time,win32con,random
-import ctypes
 
 def AI():
     engine = pyttsx3.init('sapi5')
@@ -295,10 +294,10 @@ def AI():
                 speak(results)
 
             elif 'open youtube' in query:
-                webbrowser.open("youtube.com")
+                webbrowser.open("https://youtube.com")
 
             elif 'open google' in query:
-                webbrowser.open("google.com")   
+                webbrowser.open("https://google.com")   
 
             elif 'play music' in query:
                 music_dir = 'Songs\\'
@@ -329,15 +328,15 @@ def AI():
                 a=str(query)
                 b=a[7:]
                 webbrowser.open(b)
-            elif 'terminate' in query :
-                speak("Good Bye We'll Meet Again")
-                exit()
+            elif 'refresh' in query :
+                speak("refreshing.......")
+                AI()
 
             elif 'are you there' in query :
                 speak("Yes I am There")
             elif 'print' in query :
                 #a=str(query)
-                #print(a[6:]+"\n")
+                print(query[6:]+"\n")
                 pyautogui.keyDown(query[6:])
                 pyautogui.typewrite(query[6:])
             elif 'covid' in query :
@@ -355,6 +354,7 @@ def AI():
                 x=input("INPUT A WORD : ")
                 speak(x)
             elif 'type' in query:
+                print(query[5:]+"\n")
                 typethis(query[5:])
             elif 'start chrome' in query:
                 os.startfile("C:\Program Files (x86)\Google\Chrome\Application\chrome.exe")
@@ -383,10 +383,6 @@ def AI():
                 videos = os.listdir(video_dir)
                 print(videos)    
                 os.startfile(os.path.join(video_dir, videos[0]))
-            elif 'start cd' in query:
-                  for i in range(1):
-                     ctypes.windll.winmm.mciSendStringW("set cdaudio door open",None, 0, None)
-                     ctypes.windll.winmm.mciSendStringW("set cdaudio door closed",None, 0, None)
             
             
                 
