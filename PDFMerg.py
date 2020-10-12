@@ -1,4 +1,6 @@
 import os
+import time
+from time import  strftime
 SHIVAM=os.getcwd()
 try:
     from PyPDF2 import PdfFileMerger, PdfFileReader
@@ -10,7 +12,12 @@ def pm(x):
     for i in range(0, len(x)):
         mergedObject.append(PdfFileReader(x[i], 'rb'))
     os.chdir(SHIVAM)
-    mergedObject.write("YourMergedPDF.pdf")
+    file=("YourMergedPDF"+str(strftime("%a%d%b%Y%H%M%S"))+".pdf")
+    mergedObject.write(str(file))
+    os.system(str(file))
+    print("\n your file is saved at location")
+    print(str(os.getcwd()))
+    time.sleep(10)
 def write(y):
     file = open('PDFMerg.txt','a+')
     for i in y :

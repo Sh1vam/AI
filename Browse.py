@@ -8,7 +8,7 @@ class Root(Tk):
     def __init__(Shivam):
         super(Root, Shivam).__init__()
         Shivam.title("PDF Merg")
-        Shivam.minsize(400, 400)
+        Shivam.minsize(5, 5)
  
         Shivam.labelFrame = ttk.LabelFrame(Shivam, text = "Open File")
         Shivam.labelFrame.grid(column = 0, row = 1, padx = 20, pady = 20)
